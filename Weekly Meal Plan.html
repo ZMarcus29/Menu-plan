@@ -1,0 +1,303 @@
+<!DOCTYPE html>
+<html lang="zh-HK"><head><meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+  
+  <title>Weekly Meal Plan</title>
+  <style>
+  * {
+    box-sizing: border-box;
+  }
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    background: #111827;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+  }
+  .wrapper {
+    width: 100%;
+    max-width: 1800px;    /* 放大最大寬度 */
+    padding: 20px;
+  }
+  .card {
+    position: relative;
+    background: #ffece9;
+    border-radius: 16px;
+    padding: 32px 32px 40px;
+    box-shadow: 0 8px 18px rgba(0,0,0,0.25);
+    }
+    .duck-left,
+    .duck-right {
+      position: absolute;
+      top: -50px;
+      width: 200px;
+      height: auto;
+    }
+    .duck-left { left: -10px; }
+    .duck-right { right: -10px; }
+    .duck-left img,
+    .duck-right img {
+      width: 100%;
+      height: auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    header h1 {
+      margin: 0;
+      font-size: 26px;
+      letter-spacing: 2px;
+      color: #ff4f7b;
+    }
+    header p {
+      margin: 6px 0 0;
+      font-size: 13px;
+      letter-spacing: 1px;
+      color: #d77e5b;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(5, 1fr);
+      gap: 12px;
+      margin-top: 20px;
+    }
+    .day-column {
+      border-radius: 10px;
+      overflow: hidden;
+      background: #111827;
+      color: #fff;
+      display: flex;
+      flex-direction: column;
+      min-height: 380px;
+    }
+    .day-header {
+      text-align: center;
+      padding: 10px 6px;
+      font-weight: 700;
+      letter-spacing: 1px;
+      font-size: 12px;
+      color: #fff;
+      background: #ff4f7b;
+    }
+    .block {
+      padding: 10px 10px 12px;
+      flex: 1;
+    }
+    .block.breakfast {
+      background: #ffd96a;
+      color: #6b2400;
+    }
+    .block.dinner {
+      background: #ff7da5;
+      color: #3c0614;
+    }
+    .meal-title {
+      font-weight: 700;
+      font-size: 12px;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      margin-bottom: 4px;
+    }
+    .meal-list {
+      font-size: 11px;
+      line-height: 1.3;
+      margin: 0;
+      padding-left: 14px;
+    }
+    .meal-list li { margin-bottom: 2px; }
+    .editable { cursor: text; }
+    footer {
+    margin-top: 14px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    font-size: 11px;
+    color: #000000;   /* ← 改為黑色 */
+  }
+  .note {
+      opacity: 0.85;
+    }
+    .download-btn {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      padding: 6px 10px;
+      border-radius: 999px;
+      border: 1px solid #f9a8d4;
+      background: #be185d;
+      color: #fff;
+      font-size: 11px;
+      cursor: pointer;
+    }
+    .download-btn:hover {
+      background: #db2777;
+    }
+    .download-icon {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      border: 2px solid #fff;
+      position: relative;
+    }
+    .download-icon::after {
+      content: "";
+      position: absolute;
+      left: 3px;
+      top: 3px;
+      width: 4px;
+      height: 4px;
+      border-left: 2px solid #fff;
+      border-bottom: 2px solid #fff;
+      transform: rotate(-45deg);
+    }
+
+    @media print {
+      body {
+        background: #fff;
+        padding: 0;
+      }
+      .wrapper {
+        padding: 0;
+        box-shadow: none;
+      }
+      .card {
+        box-shadow: none;
+        margin: 0;
+      }
+      footer {
+        display: none;
+      }
+    }
+</style>
+</head>
+<body>
+  <div class="wrapper">
+    <div class="card">
+      <!-- AP Duck images -->
+      <div class="duck-left">
+        <img src="./Weekly Meal Plan_files/apduck-left.png" alt="AP Duck left">
+      </div>
+      <div class="duck-right">
+        <img src="./Weekly Meal Plan_files/apduck-right.png" alt="AP Duck right">
+      </div>
+
+      <header>
+        <h1>ABBY'S HEALTHY MEAL PLAN😚</h1>
+        <p>MONDAY TO FRIDAY · BREAKFAST &amp; DINNER</p>
+      </header>
+
+      <div class="grid">
+        <!-- Monday -->
+        <div class="day-column">
+          <div class="day-header">MONDAY</div>
+          <div class="block breakfast editable" contenteditable="true">
+            <div class="meal-title">BREAKFAST</div>
+            <ul class="meal-list">
+              <li>水煮蛋 1–2 隻</li><li>混合穀物 1 碗</li>
+            </ul>
+          </div>
+          <div class="block dinner editable" contenteditable="true">
+            <div class="meal-title">DINNER</div>
+            <ul class="meal-list">
+              <li>去皮雞胸一掌心大小</li>
+              <li>配清炒西蘭花＋紅蘿蔔＋蘑菇一大碟（少油）</li>
+              <li>糙米飯 1/3–1/2 碗</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Tuesday -->
+        <div class="day-column">
+          <div class="day-header">TUESDAY</div>
+          <div class="block breakfast editable" contenteditable="true">
+            <div class="meal-title">BREAKFAST</div>
+            <ul class="meal-list">
+              <li>藍莓乳酪</li>
+              <li>半個全麥方包 或 1 小條番薯</li>
+            </ul>
+          </div>
+          <div class="block dinner editable" contenteditable="true">
+            <div class="meal-title">DINNER</div>
+            <ul class="meal-list">
+              <li>魚片 + 嫩豆腐 + 番茄+ 娃娃菜／大白菜，清湯少油少鹽</li>
+              <li>蒸番薯 1 小條</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Wednesday -->
+        <div class="day-column">
+          <div class="day-header">WEDNESDAY</div>
+          <div class="block breakfast editable" contenteditable="true">
+            <div class="meal-title">BREAKFAST</div>
+            <ul class="meal-list">
+              <li>飯團／燕麥粥</li>
+              <li>滑蛋 1–2 隻</li>
+            </ul>
+          </div>
+          <div class="block dinner editable" contenteditable="true">
+            <div class="meal-title">DINNER</div>
+            <ul class="meal-list">
+              <li>瘦豬肉或雞柳，與芥蘭、甘筍、彩椒同炒（菜佔 2/3）</li>
+              <li>糙米或雜穀飯 1/3–1/2 碗</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Thursday -->
+        <div class="day-column">
+          <div class="day-header">THURSDAY</div>
+          <div class="block breakfast editable" contenteditable="true">
+            <div class="meal-title">BREAKFAST</div>
+            <ul class="meal-list">
+              <li>藍莓乳酪</li>
+              <li>半個全麥包 或 1 小條番薯</li>
+            </ul>
+          </div>
+          <div class="block dinner editable" contenteditable="true">
+            <div class="meal-title">DINNER</div>
+            <ul class="meal-list">
+              <li>煎白身魚或三文魚，少量油</li>
+              <li>清炒椰菜花＋西蘭花＋菇類一大碟</li>
+              <li>糙米飯約 1/3 碗</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Friday -->
+        <div class="day-column">
+          <div class="day-header">FRIDAY</div>
+          <div class="block breakfast editable" contenteditable="true">
+            <div class="meal-title">BREAKFAST</div>
+            <ul class="meal-list">
+              <li>水煮蛋 1–2 隻</li><li><span style="font-family: -apple-system, BlinkMacSystemFont, &quot;Segoe UI&quot;, sans-serif;">半燕麥／雜糧 1 碗</span></li>
+            </ul>
+          </div>
+          <div class="block dinner editable" contenteditable="true">
+            <div class="meal-title">DINNER</div>
+            <ul class="meal-list">
+              <li>香煎硬豆腐一掌心大小，少油，蒜蓉＋豉油</li>
+              <li>大碟炒雜菜（甜豌豆，西蘭花，紅椒，洋葱）</li>
+              <li>番薯或南瓜 1 小份</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <footer>
+        <div class="note">
+          提示：直接點擊任何餐格即可修改；如要輸出 PDF，請使用右下角按鈕。
+        </div>
+        <button class="download-btn" onclick="window.print()">
+          <span class="download-icon"></span>
+          Export to PDF
+        </button>
+      </footer>
+    </div>
+  </div>
+
+
+</body></html>
